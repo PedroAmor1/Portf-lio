@@ -1,0 +1,331 @@
+/* --- FUNDO E HEADER (mantido como está, mas pode ter melhorias) --- */
+body {
+    margin: 0;
+    font-family: sans-serif; 
+   background: radial-gradient(circle at top left, #0a0a0f, #050509);
+    /* Se você tiver a imagem de fundo, adicione aqui como discutimos antes: */
+    /* background: #08090a url('fundo-site-beta.jpg') center center / cover no-repeat fixed; */
+
+}
+
+.main-header {
+  background: rgba(8, 9, 10, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(58, 174, 252, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+  transition: background 0.3s ease;
+}
+
+/* === Logo === */
+.logo {
+  color: #3aaefc;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+ 
+}
+
+.main-nav a {
+  position: relative;
+  text-decoration: none;
+  color: #b8c0cc;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #3aaefc;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #3aaefc;
+  text-shadow: 0 0 8px rgba(58, 174, 252, 0.7);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* --- SEÇÃO DE INÍCIO COM FLEXBOX --- */
+.iniciop { /* Esta classe agora está na <section id="inicio"> no HTML */
+    display: flex; 
+    align-items: center; /* Centraliza verticalmente o texto e a imagem */
+    justify-content: space-around; /* Use space-around ou center para um melhor espaçamento */
+                                  /* space-between empurra MUITO para as bordas */
+    gap: 40px; 
+    
+    padding: 80px 10%; /* Espaçamento interno da seção */
+    min-height: 90vh; /* Garante que a seção ocupe a maior parte da tela */
+    /* background-color: #1a1a1a;  Pode remover se estiver usando uma imagem de fundo no body */
+    box-sizing: border-box; /* Boa prática */
+}
+
+/* --- ESTILOS DO CONTEÚDO DE TEXTO --- */
+.apresentacao {
+    font-family: monospace;
+    /* Remover text-align: center; se você quiser alinhar o texto à esquerda na coluna */
+    text-align: left; /* Alinha o texto à esquerda dentro da coluna dele */
+    /* Remover padding-top e padding-right que não são necessários com flexbox */
+    padding-top: 0; /* Remover ou ajustar */
+    padding-right: 0; /* Remover ou ajustar */
+    
+    color: #007BFF; /* Cor dos textos h1/h3, você pode querer mudar para #fff ou #e0e0e0 para maior contraste */
+    
+    flex: 1; /* Permite que esta div ocupe espaço na linha flexível */
+    max-width: 600px; /* Limita a largura do texto para melhor leitura */
+}
+
+.apresentacao h1 {
+    font-size: 48px; /* Ajuste o tamanho do h1 aqui */
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #3aaefc;
+    text-shadow: 0 0 10px rgba(58, 174, 252, 0.3);
+
+}
+
+.apresentacao h3 {
+    font-size: 24px; /* Ajuste o tamanho do h3 aqui */
+    color: #a0a0a0; /* Exemplo: cor cinza para a descrição */
+}
+
+
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px; /* opcional, só deixa a imagem mais suave */
+}
+
+img:hover {
+  transform: scale(1.07);
+ 
+  filter: brightness(1.1);
+}
+
+.img-minha {
+
+      max-width: 100%; /* Super importante: a imagem nunca será maior que seu container */
+    height: auto;    /* Mantém a proporção */
+    width: 300px;    /* Você pode definir uma largura máxima para a imagem, se quiser */
+                     /* max-width: 100% é geralmente suficiente */
+    
+    /* Remover padding-left e padding-bottom que não são necessários com flexbox */
+    padding-left: 0; /* Remover ou ajustar */
+    padding-bottom: 0; /* Remover ou ajustar */
+    
+    border-radius: 15px; /* Adiciona cantos arredondados */
+    box-shadow: 0 5px 15px rgba(17, 151, 192, 0.5); /* Sombra sutil */
+}
+
+
+
+
+
+    /* --- Animação --- */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Aplica a animação na classe .intro-text --- */
+.intro-text {
+  animation: fadeInUp 1s ease-out;
+}
+
+
+
+
+
+/* --- SEÇÃO DE INÍCIO COM FLEXBOX --- */
+.sobrep { /* Esta classe agora está na <section id="inicio"> no HTML */
+    display: flex; 
+    align-items: center; /* Centraliza verticalmente o texto e a imagem */
+    justify-content: space-around; /* Use space-around ou center para um melhor espaçamento */
+                                  /* space-between empurra MUITO para as bordas */
+    gap: 40px; 
+    
+    padding: 80px 10%; /* Espaçamento interno da seção */
+    min-height: 90vh; /* Garante que a seção ocupe a maior parte da tela */
+    /* background-color: #1a1a1a;  Pode remover se estiver usando uma imagem de fundo no body */
+    box-sizing: border-box; /* Boa prática */
+     background: linear-gradient(180deg, #050509, #0a0a0f);
+}
+
+/* --- ESTILOS DA IMAGEM --- */
+.img-container-sobre { /* Esta é a nova div que envolve a imagem */
+    flex: 1; /* Permite que esta div ocupe espaço na linha flexível */
+    display: flex; /* Transforma esta div em um container flex para centralizar a imagem dentro dela */
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+    align-items: center; /* Centraliza a imagem verticalmente */
+}
+
+.img-sobre {
+  
+     max-width: 100%; /* Super importante: a imagem nunca será maior que seu container */
+    height: auto;    /* Mantém a proporção */
+    width: 250px;    /* Você pode definir uma largura máxima para a imagem, se quiser */
+                     /* max-width: 100% é geralmente suficiente */
+    
+    /* Remover padding-left e padding-bottom que não são necessários com flexbox */
+    padding-left: 0; /* Remover ou ajustar */
+    padding-bottom: 0; /* Remover ou ajustar */
+    
+    border-radius: 15px; /* Adiciona cantos arredondados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+   
+}       
+
+/* --- ESTILOS DO CONTEÚDO DE TEXTO --- */
+.sobre-texto {
+    font-family: monospace;
+    /* Remover text-align: center; se você quiser alinhar o texto à esquerda na coluna */
+    text-align: left; /* Alinha o texto à esquerda dentro da coluna dele */
+    /* Remover padding-top e padding-right que não são necessários com flexbox */
+    padding-top: 0; /* Remover ou ajustar */
+    padding-right: 0; /* Remover ou ajustar */
+    color: #ffffff; /* Cor dos textos h1/h3, você pode querer mudar para #fff ou #e0e0e0 para maior contraste */
+    flex: 1; /* Permite que esta div ocupe espaço na linha flexível */
+    max-width: 600px; /* Limita a largura do texto para melhor leitura */
+}
+
+
+.sobre-texto h1 {
+  font-size: 2.2rem;
+  color: #3aaefc;
+  margin-bottom: 20px;
+ text-shadow: 0 0 10px rgba(58, 174, 252, 0.3);
+}
+
+.sobre-texto h3 {
+    font-size: 15px;
+}
+
+
+
+
+.habilidades-section {
+  padding: 100px 10%;
+ 
+  text-align: center;
+  color: #d8d8d8;
+}
+
+.habilidades-section h2 {
+  font-size: 2.2rem;
+  color: #3aaefc;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(58, 174, 252, 0.4);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  color: #3aaefc;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.skill-card:hover {
+  background: rgba(58, 174, 252, 0.1);
+  transform: scale(1.05);
+}
+
+.habilidades-section img {
+    width: auto;
+    height: 100px;
+}
+
+.skill-card img {
+  transition: filter 0.3s ease;
+}
+
+
+
+.contatop { /* Esta classe agora está na <section id="inicio"> no HTML */
+   padding: 100px 10%;
+ 
+  text-align: center;
+  color: #d8d8d8;
+   background: linear-gradient(180deg, #050509, #0a0a0f);
+}
+
+.contatop h2 {
+font-size: 2.2rem;
+  color: #3aaefc;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(58, 174, 252, 0.4);
+}
+
+.contatop p {
+  font-size: 20px;
+
+}
+
+.contatop img {
+  height: 40px ;
+  width: 30px;
+  padding-top: 7px ;
+  color: #3aaefc;
+  padding-top: 12px;
+}
+
+.skills-container-contato {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contatop a {
+    color: #d8d8d8; /* Muda a cor do link para o seu azul "tech" */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold; /* Deixa o link em negrito para destacar */
+    transition: color 0.3s ease; /* Efeito suave na cor */
+}
+
+/* Efeito de hover (quando o mouse passa por cima) */
+.contatop a:hover {
+    color: #0aafff; /* Muda a cor para branco no hover */
+    text-decoration: underline; /* Adiciona o sublinhado de volta no hover */
+}
